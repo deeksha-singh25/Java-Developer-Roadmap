@@ -1,19 +1,34 @@
+import java.util.ArrayList;
 public abstract class Animal {
+    protected String name;
+
+    public Animal(String name) {
+        this.name = name;
+    }
+
     public abstract void animalSound();
 
     public void sleep() {
-        System.out.println("Animal is sleeping Zzzz");
+        System.out.println(name+"is sleeping ");
     }
 
 
     public static void main(String[] args) {
-        Animal myObj1 = new Dog();
-        Animal myObj2 = new Cat();
-        myObj1.animalSound();
-        myObj1.sleep();
-        myObj2.animalSound();
-        myObj2.sleep();
-        System.out.println();
+        ArrayList<Playable> pets = new ArrayList<>();
+        pets.add(new Dog("Buddy"));
+        pets.add(new Cat("Whiskers"));
+
+        for (Playable pet : pets) {
+            // Cast to Animal to also use sound() + sleep()
+            Animal animal = (Animal) pet;
+            animal.animalSound();
+            animal.sleep();
+
+            // Interface method
+            pet.play();
+
+            System.out.println("----------------");
+        }
     }
 
 }

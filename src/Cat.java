@@ -1,6 +1,12 @@
-class Cat extends Animal{
+class Cat extends Animal implements Playable{
+    public Cat(String name) {
+        super(name);
+    }
     public void animalSound(){
-        System.out.println("Cat says: Meow Meow!");
+        System.out.println(name+"Meow: Meow Meow!");
+    }
+    public void play(){
+        System.out.println(name+"..is playing ball");
     }
 
 }
