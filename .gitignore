@@ -27,3 +27,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+# Ignore any Java files in project root (only allow inside src/)
+*.java
+!/src/**/*.java
